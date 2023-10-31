@@ -1,14 +1,18 @@
 function App() {
-  const name = "흥민";
+  const num1 = Math.ceil(Math.random() * 6);
+  const num2 = Math.ceil(Math.random() * 6);
+
+  let messageClassName = "lose";
+  let message = "다시 던지기";
+  if (num2 === num1) {
+    messageClassName = "win";
+    message = "당첨";
+  }
   return (
     <>
-      <h1>이름은 {name}</h1>
-      <h1>이름은 {"강인"}</h1>
-      <h1>이름은 희찬</h1>
-
-      {/* 아래 두개의 코드는 같음 */}
-      <div className={"error"}>Lorem ipsum dolor.</div>
-      <div className="error">Lorem ipsum dolor.</div>
+      <h1>1번 주사위 {num1}</h1>
+      <h1>2번 주사위 {num2}</h1>
+      <h1 className={messageClassName}>{message}</h1>
     </>
   );
 }
