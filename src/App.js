@@ -7,10 +7,14 @@ function App() {
       <div className="error">Lorem ipsum dolor.</div>
       {/* for 속성은 htmlFor로 작성*/}
 
-      <label htmlFor="nameInput">이름</label>
-      <input type="text" id="nameInput" />
-      <label htmlFor="ageInput">나이</label>
-      <input type="text" id="ageInput" />
+      <div>
+        <label htmlFor="nameInput">이름</label>
+        <input type="text" id="nameInput" />
+      </div>
+      <div>
+        <label htmlFor="ageInput">나이</label>
+        <input type="text" id="ageInput" />
+      </div>
     </>
   );
 }
