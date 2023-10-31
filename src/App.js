@@ -1,10 +1,15 @@
-
 function App() {
+  // jsx에서 태그 사용시 꼭 종료태그 작성 해야함
+  // 빈 요소이면 시작태그에서 종료 (ex : <br>)
   return (
     <div>
       <h1>hello react</h1>
-        <h2>HI REACT</h2>
-        <MyComp />
+      <h2>HI REACT</h2>
+      <p>
+        Lorem ipsum dolor.
+        <br /> Lorem ipsum dolor.
+      </p>
+      <MyComp />
     </div>
   );
 }
@@ -15,20 +20,20 @@ function App() {
 // return 값은 보통 JSX 코드
 
 function MyComp() {
-    // return 에 jsx 코드 작성가능
-    // 꼭 하나의 root tag가 존재 해야함
-    // return 값이 여러줄이면 ()로 감싸기
-    // root tag 가 필요 없다면 fragment 사용 가능
+  // return 에 jsx 코드 작성가능
+  // 꼭 하나의 root tag가 존재 해야함
+  // return 값이 여러줄이면 ()로 감싸기
+  // root tag 가 필요 없다면 fragment 사용 가능
 
-    // jxs 주석 사용법
-    // {/*  */}
-    return (
-        <>
-            {/* fregment 는 <></> */}
-            <h1>HI COMPONENT</h1>
-            <h2>hello</h2>
-        </>
-    )
+  // jxs 주석 사용법
+  // {/*  */}
+  return (
+    <>
+      {/* fregment 는 <></> */}
+      <h1>HI COMPONENT</h1>
+      <h2>hello</h2>
+    </>
+  );
 }
 
 export default App;
