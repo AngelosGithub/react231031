@@ -1,14 +1,13 @@
-// export 된 컴포넌트(변수,함수,객체) 를 import 해서 사용
-import { MyElem } from "./component/MyElem";
-import { MyComp } from "./component/MyComp";
-import { MyHeader } from "./component/MyHeader";
+import { MyBox, MyElem, MyContainer, name, person } from "./component/MyBox";
 
 function App() {
+  console.log(name, "name");
+  console.log(person, "person");
   return (
     <>
-      <MyHeader />
-      <MyComp />
+      <MyBox />
       <MyElem />
+      <MyContainer />
     </>
   );
 }
