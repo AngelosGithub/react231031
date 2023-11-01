@@ -5,12 +5,14 @@
 
 import { MyBox } from "./component/MyBox";
 import { MyComp } from "./component/MyComp";
+import { MyComponent } from "./component/MyComponent";
 
 function App() {
   return (
     <>
       <MyComp />
       <MyBox />
+      <MyComponent />
     </>
   );
 }
