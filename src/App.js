@@ -1,20 +1,15 @@
+// export 된 컴포넌트(변수,함수,객체) 를 import 해서 사용
+import { MyElem } from "./component/MyElem";
+import { MyComp } from "./component/MyComp";
+import { MyHeader } from "./component/MyHeader";
+
 function App() {
   return (
     <>
-      <MyComp name="흥민" address="신촌" age={33} city="서울" />
-      <MyComp address="강남" age={33} city="부산" />
-      <MyComp address="강남" city="부산" />
+      <MyHeader />
+      <MyComp />
+      <MyElem />
     </>
-  );
-}
-
-function MyComp({ name = "불명", address, city, age = 0 }) {
-  return (
-    <div>
-      <p>
-        {name}은 {age}살 이고 {address}, {city}에 산다
-      </p>
-    </div>
   );
 }
 
