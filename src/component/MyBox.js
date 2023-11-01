@@ -1,15 +1,12 @@
 export function MyBox() {
-  return null;
+  return (
+    <div>
+      <h1>this is mybox</h1>
+    </div>
+  );
 }
 
-export function MyElem() {
-  return null;
-}
+export const country = "프랑스";
+export const person = { name: "son", age: 33 };
 
-export function MyContainer() {
-  return null;
-}
-
-// 변수도 내보내기 가능
-export let name = "손흥민";
-export const person = { name: "강인", team: "파리" };
+export default MyBox;
