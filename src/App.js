@@ -1,20 +1,45 @@
-import { Box, Center, Circle, Square } from "@chakra-ui/react";
-import { HamburgerIcon, PhoneIcon } from "@chakra-ui/icons";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalFooter,
+  ModalHeader,
+  ModalOverlay,
+  useDisclosure,
+} from "@chakra-ui/react";
 
 function App() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Center bg={"pink"} h={"200px"}>
-        <Square bg={"blue.300"} w={"100px"} h={"100px"}>
-          <HamburgerIcon />
-        </Square>
-      </Center>
+      <Button onClick={onOpen}>모달 열기</Button>
 
-      <Center bg={"red.200"} h={"200px"}>
-        <Circle bg={"blue.400"} w={"100px"} h={"100px"}>
-          <PhoneIcon />
-        </Circle>
-      </Center>
+      <Modal
+        closeOnOverlayClick={false}
+        isOpen={isOpen}
+        onClose={onClose}
+        isCentered
+        motionPreset="slideInBottom"
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>제목</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
+            cumque earum enim eveniet id incidunt officiis, recusandae rerum
+            tempora velit? Adipisci ducimus error et minima natus nemo omnis
+            quibusdam ullam?
+          </ModalBody>
+          <ModalFooter>
+            <Button colorScheme="blue" onClick={onClose}>
+              닫기
+            </Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
     </>
   );
 }
