@@ -1,115 +1,20 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardBody,
-  CardFooter,
-  CardHeader,
-  Heading,
-  Flex,
-  SimpleGrid,
-  Table,
-  Thead,
-  Tr,
-  Th,
-  Tbody,
-  Td,
-} from "@chakra-ui/react";
+import { Box, Center, Circle, Square } from "@chakra-ui/react";
+import { HamburgerIcon, PhoneIcon } from "@chakra-ui/icons";
 
 function App() {
   return (
     <>
-      <SimpleGrid gap={5} columns={1}>
-        <Box>
-          <Table>
-            <Thead>
-              <Tr>
-                <Th>Lorem.</Th>
-                <Th>Unde!</Th>
-                <Th>Eius?</Th>
-                <Th>Doloribus!</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Voluptate!</Td>
-                <Td>Tempore?</Td>
-                <Td>Repellat?</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Laboriosam.</Td>
-                <Td>Vitae?</Td>
-                <Td>Aliquid!</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Hic!</Td>
-                <Td>Expedita.</Td>
-                <Td>Ipsa?</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Ratione.</Td>
-                <Td>Rerum!</Td>
-                <Td>Itaque.</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Totam.</Td>
-                <Td>Nihil.</Td>
-                <Td>Eius.</Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </Box>
+      <Center bg={"pink"} h={"200px"}>
+        <Square bg={"blue.300"} w={"100px"} h={"100px"}>
+          <HamburgerIcon />
+        </Square>
+      </Center>
 
-        <Box>
-          <Table variant="striped" colorScheme="red" size="lg">
-            <Thead>
-              <Tr>
-                <Th>Lorem.</Th>
-                <Th>Facere!</Th>
-                <Th>Aspernatur.</Th>
-                <Th>Voluptate?</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Ipsam.</Td>
-                <Td>Rem?</Td>
-                <Td>Itaque?</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Quaerat!</Td>
-                <Td>Nihil!</Td>
-                <Td>Est.</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Culpa?</Td>
-                <Td>Veritatis?</Td>
-                <Td>Fugit.</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Quos!</Td>
-                <Td>Voluptates.</Td>
-                <Td>Mollitia.</Td>
-              </Tr>
-              <Tr>
-                <Td>Lorem.</Td>
-                <Td>Neque!</Td>
-                <Td>Vero.</Td>
-                <Td>Laborum?</Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </Box>
-      </SimpleGrid>
+      <Center bg={"red.200"} h={"200px"}>
+        <Circle bg={"blue.400"} w={"100px"} h={"100px"}>
+          <PhoneIcon />
+        </Circle>
+      </Center>
     </>
   );
 }
