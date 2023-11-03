@@ -1,21 +1,27 @@
 import React, { useState } from "react";
-import { Input, NumberInput, Text } from "@chakra-ui/react";
+import { Box, Button, Input } from "@chakra-ui/react";
 
 function App(props) {
   const [number, setNumber] = useState(0);
 
-  const isOdd = number % 2 == 1;
-
-  function handleInputChange(e) {
-    setNumber(Number(e.target.value));
+  function handlePlusClick() {
+    setNumber(number + 1);
   }
+  function handleMinusClick() {
+    setNumber(number - 1);
+  }
+
   return (
     <div>
-      <Input type="number" onChange={handleInputChange} />
-      <Text>
-        {isOdd && "홀수"}
-        {isOdd || "짝수"}
-      </Text>
+      <Input type="number" value={number} />
+      <Box>
+        <Button onClick={handlePlusClick}>+</Button>
+        <Button onClick={handleMinusClick}>-</Button>
+      </Box>
+      <Box>
+        <Button onClick={() => number + 1}>+</Button>
+        <Button onClick={() => number - 1}>-</Button>
+      </Box>
     </div>
   );
 }
