@@ -19,8 +19,8 @@ function App(props) {
         <Button onClick={handleMinusClick}>-</Button>
       </Box>
       <Box>
-        <Button onClick={() => number + 1}>+</Button>
-        <Button onClick={() => number - 1}>-</Button>
+        <Button onClick={() => setNumber(number + 1)}>+</Button>
+        <Button onClick={() => setNumber(number - 1)}>-</Button>
       </Box>
     </div>
   );
