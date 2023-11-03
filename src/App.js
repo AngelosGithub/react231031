@@ -11,7 +11,6 @@ function App(props) {
     e.preventDefault();
     console.log("다른 일을 시킴");
   }
-
   return (
     <div>
       <a href="https://www.naver.com" onClick={handleClick}>
