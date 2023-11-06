@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 function App(props) {
-  // HOOK : use로 시작하는 함수
-  // hook은 컴포넌트 상단에 작성해야 함
-  // 조건문이나 반복문 중첩된 함수 안에 작성할 수 없음
-  // (if, for, function 내부에 작성 불가)
+  const [number, setNumber] = useState(0);
+
+  if (number > 5) {
+    const [text, setText] = useState("");
+  }
   return <div></div>;
 }
 
