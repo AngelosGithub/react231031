@@ -20,7 +20,7 @@ function App(props) {
         <Text>{number}</Text>
       </Box>
       <Box>
-        <Button onClick={handleNumberObjectChange}>number 변경</Button>
+        <Button onClick={handleNumberObjectChange}>number 객체 변경</Button>
         <Text>{numberObject.number}</Text>
       </Box>
     </div>
