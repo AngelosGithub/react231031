@@ -1,31 +1,39 @@
-import React, { useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { Button, Text } from "@chakra-ui/react";
+import { create } from "axios";
 
-function ChildComp({ onClick2 }) {
-  return <Button onClick={onClick2}>클릭!</Button>;
+function CComp() {
+  // 3. context 사용하기 : useContext(Context);
+  const message = useContext(MessageContext);
+  return <Text>받은 메세지 : {message}</Text>;
 }
 
-function SomeComp({ onClick }) {
-  return <ChildComp onClick2={onClick} />;
+function BComp() {
+  return <CComp />;
 }
 
-function OtherChildComp({ text2 }) {
-  return <Text>{text2}</Text>;
-}
-
-function OtherComp({ text }) {
-  return <OtherChildComp text2={text} />;
+function AComp() {
+  return <BComp />;
 }
 
 function App(props) {
-  const [message, setMessage] = useState("dd");
+  const [message, setMessage] = useState("");
 
+  // message state를 CComp에 전달하기
+  // 1. context 만들기 : createContext();
+  // 2. context에 state 넣기 : <Context.provider value={state}></Context.Provider>
+  // 3. tree 안에서 사용하기
   return (
     <div>
-      <SomeComp onClick={() => setMessage("bb")} />
-      <OtherComp text={message} />
+      <Button onClick={() => setMessage("바꾼 메세지!")}>메세지 바꾸기</Button>
+      <MessageContext.Provider value={message}>
+        <AComp />
+      </MessageContext.Provider>
     </div>
   );
 }
+// 1. context 만들기
+// context 이름은 대문자로 시작하고 Context로 끝남
+const MessageContext = createContext(null);
 
 export default App;
