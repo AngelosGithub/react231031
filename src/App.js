@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Button, Text } from "@chakra-ui/react";
 
-function ChildComp({ onClick }) {
-  return <Button onClick={onClick}>클릭!</Button>;
+function ChildComp({ onClick2 }) {
+  return <Button onClick={onClick2}>클릭!</Button>;
 }
 
 function SomeComp({ onClick }) {
-  return <ChildComp onClick={onClick} />;
+  return <ChildComp onClick2={onClick} />;
 }
 
 function OtherChildComp({ text2 }) {
