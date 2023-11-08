@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -6,52 +6,57 @@ import {
   Route,
   RouterProvider,
   useNavigate,
+  useSearchParams,
 } from "react-router-dom";
-import { Box, Button, Flex } from "@chakra-ui/react";
+import { Box, Button, Text } from "@chakra-ui/react";
+import axios from "axios";
 
-function HomeComponent() {
-  // 경로 이동시 useNavigate hook 사용 해야함
+function Home() {
   const navigate = useNavigate();
-
   return (
     <Box>
-      <Flex gap={"10px"}>
-        {/*경로 이동시 자바 스크립트 코드를 그냥 쓰면 안됨*/}
-        <Box>
-          <Button onClick={() => (window.location.href = "/apath")}>
-            A로 가기
-          </Button>
-        </Box>
-        <Box>
-          <Button onClick={() => (window.location.href = "/bpath")}>
-            B로 가기
-          </Button>
-        </Box>
-        <Box>
-          <Button onClick={() => navigate("/apath")}>A</Button>
-        </Box>
-        <Box>
-          <Button onClick={() => navigate("/bpath")}>B</Button>
-        </Box>
-      </Flex>
-      <Outlet />
+      <Box>
+        <Button onClick={() => navigate("/path1?id=1")}>1번 고객 보기</Button>
+        <Button onClick={() => navigate("/path1?id=2")}>2번 고객 보기</Button>
+        <Button onClick={() => navigate("/path1?id=3")}>3번 고객 보기</Button>
+      </Box>
+      <Box>
+        <Outlet />
+      </Box>
     </Box>
   );
 }
 
 function AComp() {
-  return <Box>A Component</Box>;
-}
+  const [customer, setCustomer] = useState("");
+  // query string 얻기
+  const [searchParam] = useSearchParams();
 
-function BComp() {
-  return <Box>B Component</Box>;
+  // console.log(searchParam);
+  // console.log(searchParam.get("id"));
+  // console.log(searchParam.toString());
+
+  useEffect(() => {
+    axios
+      .get("/api/main1/sub4?" + searchParam.toString())
+      .then((response) => setCustomer(response.data));
+  }, []);
+
+  return (
+    <Box>
+      {customer && (
+        <Text>
+          {searchParam.get("id")} 번 고객명 {customer.customerName}
+        </Text>
+      )}
+    </Box>
+  );
 }
 
 const routes = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<HomeComponent />}>
-      <Route path="apath" element={<AComp />} />
-      <Route path="bpath" element={<BComp />} />
+    <Route path="/" element={<Home />}>
+      <Route path="/path1" element={<AComp />} />
     </Route>,
   ),
 );
