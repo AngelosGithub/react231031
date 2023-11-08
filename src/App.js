@@ -40,13 +40,13 @@ function AComp() {
     axios
       .get("/api/main1/sub4?" + searchParam.toString())
       .then((response) => setCustomer(response.data));
-  }, []);
+  }, [searchParam]);
 
   return (
     <Box>
       {customer && (
         <Text>
-          {searchParam.get("id")} 번 고객명 {customer.customerName}
+          {searchParam.get("id")} 번 고객명 {customer.name}
         </Text>
       )}
     </Box>
